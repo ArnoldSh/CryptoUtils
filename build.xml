@@ -1,0 +1,32 @@
+<project name="CryptoUtils" default="jar" basedir=".">
+	
+	<property name="src" value="${basedir}/src"/>
+	<property name="dist" value="${basedir}/dist"/>
+	
+	<target name="jar" depends="build">
+		<jar 	basedir="${src}" 
+				destfile="${dist}/CryptoUtils.jar" 
+				excludes="**/*.java" 
+				includes="**/*.class">
+		</jar>
+	</target>
+
+	<target name="build" depends="clean">
+		<javac 	srcdir="${src}" 
+				debug="on" 
+				encoding="UTF-8" 
+				includeantruntime="false" 
+				source="1.7"
+				target="1.7"> 
+		</javac>
+	</target>
+
+	<target name="clean">
+		<delete>
+			<fileset 	dir="${src}" 
+						includes="**/*.class">
+			</fileset>
+		</delete>
+	</target>
+	
+</project>
